@@ -1,3 +1,4 @@
+// type 1
 package com.cg.students;
 
 public class Students {
