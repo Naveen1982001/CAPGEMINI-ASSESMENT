@@ -1,4 +1,3 @@
-// type 1
 package com.cg.students;
 
 public class Students {
@@ -10,14 +9,14 @@ public class Students {
 
      Students(int id,String name,int mark1,int mark2,int mark3)
      {
-    	 student_id =id;
-    	 student_name=name;
-         sub1=mark1;
-         sub2=mark2;
-         sub3 =mark3; 	 
+    	 this.student_id =id;
+    	 this.student_name=name;
+         this.sub1=mark1;
+         this.sub2=mark2;
+         this.sub3 =mark3; 	 
      }
    
-      public int average ( int sub1, int sub2,int  sub3)
+      public int average ( )
       {
     	  int avg=0;
     	  avg=sub1+sub2+sub3/3;
@@ -27,11 +26,11 @@ public class Students {
     	  
     	  if ( avg>=55)
   	  	{
-      	  System.out.println("This student is Pass");
+      	  System.out.println("This student is :Pass");
   	  	}
   	  else 
   	  	{
-      	 System.out.println("This student is Fail");
+      	 System.out.println("This student is :Fail");
       	}
         
     	  return avg;       
@@ -41,13 +40,13 @@ public class Students {
      public static void main(String[] args) {
 		    	 
     	 Students s1=new Students( 1, "Naveen",60,62,56)  ;	
-    	 s1.average(60,62,56);
+    	 s1.average();
     	 System.out.println(" --------------------------------------------------------------------------------------");
     	 Students s2=new Students( 2, "Yokesh",70,80,73)  ;	
-    	 s2.average(70,80,73);
+    	 s2.average();
     	 System.out.println(" --------------------------------------------------------------------------------------");
     	 Students s3=new Students( 3, "Name 3",30,20,13)  ;	
-    	 s3.average(30,20,13);
+    	 s3.average();
 	}
 
 }
