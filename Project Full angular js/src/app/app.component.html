@@ -1,0 +1,113 @@
+<div style="background-color: rgb(82,102,107);">
+<div class="container">
+  <div class="card mt-5" style="align-items: center; background-color: rgb(8,178,230);">
+    <h1 style="color: rgb(219, 73, 73); font-family: 'Comic Sans MS', cursive; font-weight: bold; text-align: center;"><img src="https://tnsindiafoundation.org/wp-content/uploads/2022/08/tnsif-logo-1.png">Placement Management </h1>
+  </div>
+
+  <div class="card mt-5" style="padding: 20px; background-color: rgb(8,178,230) ;">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="form-group">
+        <label for="name">Name :</label>
+        <input type="text" #name (ngModel)="name" name="name" id="name" class="form-control" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="college">College :</label>
+        <input type="text" #college (ngModel)="college" name="college" id="college" class="form-control"
+          placeholder="College">
+      </div>
+      <div class="form-group">
+        <label for="qualification">Qualification :</label>
+        <input type="text" #qualification (ngModel)="qualification" name="qualification" id="qualification" class="form-control"
+          placeholder="Qualification">
+      </div>
+      <div class="form-group">
+       <label for="year">Year :</label>
+       <input type="number" #year (ngModel)="year" name="year" id="year" class="form-control"
+         placeholder="Year">
+     </div>
+
+      <div class="form-group" style="margin-top: 10px;" >
+        <input type="submit" value="Register" class="btn btn-secondary w-100 ">
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-5" >
+    <table class="table table-bordered" >
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>College</th>
+          <th>Qualification</th>
+          <th>Year</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let placement of placementDetails">
+          <td>{{placement.id}}</td>
+          <td>{{placement.name}}</td>
+          <td>{{placement.college}}</td>
+          <td>{{placement.qualification}}</td>
+          <td>{{placement.year}}</td>
+          <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(placement)">
+            Edit
+          </button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteplacement(placement)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title text-center" id="exampleModalLabel">UPDATE PLACEMENT INFO BELOW </h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+       </div>
+       <div class="modal-body alert alert-primary" >
+         <form #updateForm="ngForm" (ngSubmit)="updateplacement()">
+           <div class="form-group">
+             <label for="id"> Id :</label>
+             <input type="text" disabled #id [(ngModel)]="placementToUpdate.id" name="id" id="id"
+               class="form-control" placeholder="id">
+           </div>
+           <div class="form-group">
+             <label for="name">Name :</label>
+             <input type="text" #name [(ngModel)]="placementToUpdate.name" name="name" id="name" class="form-control"
+               placeholder="Name">
+           </div>
+           <div class="form-group">
+             <label for="college">College :</label>
+             <input type="text" #college [(ngModel)]="placementToUpdate.college" name="college" id="college"
+               class="form-control" placeholder="College">
+           </div>
+           <div class="form-group">
+             <label for="qualification"> Qualification :</label>
+             <input type="text" #qualification [(ngModel)]="placementToUpdate.qualification" name="qualification" id="qualification"
+               class="form-control" placeholder=" Qualification">
+           </div>
+           <div class="form-group">
+            <label for="year"> Year :</label>
+            <input type="text" #year [(ngModel)]="placementToUpdate.year" name="year" id="year"
+              class="form-control" placeholder=" Year">
+          </div>
+           <div class="form-group">
+             <input type="submit" value="Update" class="btn btn-primary w-100">
+           </div>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
